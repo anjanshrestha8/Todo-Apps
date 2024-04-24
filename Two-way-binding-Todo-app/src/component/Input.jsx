@@ -14,6 +14,7 @@ class Input extends React.Component {
           disabled={this.props.disabled}
           required={this.props.required}
           value={this.props.value}
+          onChange={this.props.change}
         />
       </>
     );
