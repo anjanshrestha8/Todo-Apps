@@ -6,24 +6,35 @@ import Button from "./component/Button";
 
 import { Flip, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Card from "./component/Card";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      inputValue: [""],
+      inputValue: "",
+      task: ["Eat Healthy", "Go to Gym"],
     };
   }
   changeHandel = (event) => {
     this.setState({
-      inputValue: event.target.value,
+      inputValue: event.target.value + " task is added",
+      kam: event.target.value,
     });
-  }
+  };
 
   notify = () => toast.success(this.state.inputValue);
 
+  addTask = () => {
+    this.setState({
+      task: [...this.state.task, this.state.kam],
+    });
+    this.notify();
+  };
+
   render() {
+    console.log(this.state.task);
     return (
       <>
         <main className="main-container">
@@ -40,7 +51,7 @@ class App extends React.Component {
               className="btn-dark"
               value="Add"
               type="submit"
-              action={this.notify}
+              action={this.addTask}
             />
             <ToastContainer
               position="bottom-right"
@@ -48,6 +59,12 @@ class App extends React.Component {
               newestOnTop={true}
               closeOnClick
             />
+          </section>
+
+          <section>
+            {this.state.task.map((element, index) => {
+              return <Card task={element} />;
+            })}
           </section>
         </main>
       </>

@@ -1,0 +1,15 @@
+.card {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #dfdfdf;
+  font-size: 1.2rem;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 10px 1fr 100px 100px;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+.card > button {
+  margin-bottom: 0;
+}
